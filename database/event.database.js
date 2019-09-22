@@ -1,6 +1,6 @@
 class EventModel {
   constructor(dao) {
-    this.dao = dao
+    this.dao = dao;
   }
 
   createTable() {
@@ -12,15 +12,20 @@ class EventModel {
         repoId INTEGER,
         created_at datetime default current_timestamp,
         FOREIGN KEY (actorId) REFERENCES actors(id),
-        FOREIGN KEY (repoId) REFERENCES repos(id))`
-    return this.dao.run(sql)
-  } 
-  
+        FOREIGN KEY (repoId) REFERENCES repos(id))`;
+    return this.dao.run(sql);
+  }
+
   create(type, actorId, repoId) {
     return this.dao.run(
-      `INSERT INTO repos (type, actorId, repoId)
+      `INSERT INTO events (type, actorId, repoId)
         VALUES (?, ?, ?)`,
-      [type, actorId, repoId])
+      [type, actorId, repoId]
+    );
+  }
+
+  deleteAllEvents() {
+    return this.dao.run(`DELETE FROM events`);
   }
 }
 

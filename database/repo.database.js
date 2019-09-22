@@ -9,7 +9,7 @@ class RepoModel {
     CREATE TABLE IF NOT EXISTS repos (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       repoName TEXT,
-      repoUrl TEXT)`
+      repoUrl TEXT UNIQUE)`
     return this.dao.run(sql)
   }
 

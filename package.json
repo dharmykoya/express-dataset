@@ -7,7 +7,8 @@
     "start": "node ./bin/www",
     "start-dev": "node ./bin/www",
     "pretest": "npm install",
-    "test": "./node_modules/.bin/mocha test"
+    "test": "./node_modules/.bin/mocha test",
+    "test-dev": "./node_modules/.bin/mocha test"
   },
   "dependencies": {
     "bluebird": "^3.5.0",

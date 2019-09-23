@@ -24,6 +24,14 @@ class EventModel {
     );
   }
 
+  getAllEvents() {
+    return this.dao.all(`SELECT * FROM events`);
+  }
+
+  getActor(actorId) {
+    return this.dao.all(`SELECT * FROM events WHERE actorId = ?`, [actorId]);
+  }
+
   deleteAllEvents() {
     return this.dao.run(`DELETE FROM events`);
   }
